@@ -1,0 +1,17 @@
+{
+    "name": "pendalf89/yii2-tree",
+    "description": "Yii2 tree widget",
+    "license": "GNU GPLv2",
+    "authors": [
+        {
+            "name": "PendalF",
+            "email": "pendalf@mail.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "pendalf89\\tree\\": ""
+        }
+    }
+}
