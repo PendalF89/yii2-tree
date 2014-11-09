@@ -9,6 +9,9 @@
         }
     ],
     "minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "*"
+    },
     "autoload": {
         "psr-4": {
             "pendalf89\\tree\\": ""
