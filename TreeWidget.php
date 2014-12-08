@@ -2,6 +2,8 @@
 
 namespace pendalf89\tree;
 
+use yii\helpers\Html;
+
 /**
  * Class TreeWidget
  *
@@ -31,6 +33,16 @@ class TreeWidget extends \yii\base\Widget
      * @var string callback function for disply content of each item. Have $model argument.
      */
     public $value = '';
+
+    /**
+     * @var array container html options
+     */
+    public $containerOptions = [];
+
+    /**
+     * @var bool container options already set or not
+     */
+    private $containerOptionsIsSet = false;
 
     /**
      * Run the widget
@@ -85,7 +97,14 @@ class TreeWidget extends \yii\base\Widget
      */
     private function buildTree($rows, $parent_id = 0)
     {
-        $result = '<ul>';
+        $containerAttributes = '';
+
+        if (!$this->containerOptionsIsSet) {
+            $containerAttributes = Html::renderTagAttributes($this->containerOptions);
+            $this->containerOptionsIsSet = true;
+        }
+
+        $result = "<ul$containerAttributes>";
 
         foreach ($rows as $row) {
             if ($row['parent_id'] == $parent_id) {
